@@ -4,18 +4,13 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
-from dotenv import dotenv_values
-
-URI = os.getenv("URI")
-
-
 # factory
 def create_app(): 
     app = Flask(__name__)
 
     # database config
+    load_dotenv()
+    URI = os.getenv("URI")
     app.config['SQLALCHEMY_DATABASE_URI'] = URI
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

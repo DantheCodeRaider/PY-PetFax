@@ -18,5 +18,9 @@ def index():
         models.db.session.commit()
 
         return redirect('/facts')
+    
+    results = models.Fact.query.all()
+    for result in results:
+        print(result)
 
-    return render_template('facts/index.html')
+    return render_template('facts/index.html', facts=results)
